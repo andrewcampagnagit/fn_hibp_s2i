@@ -1,9 +1,12 @@
 import requests
 import os
+import json
 
-url = "https://haveibeenpwned.com/api/v3/breachedaccount/andrewalex@optonline.net"
+app_inputs = json.loads(os.environ["APP_INPUTS"])
+url = "https://haveibeenpwned.com/api/v3/breachedaccount/" + app_inputs["account"]
 payload={}
-api_key = os.environ["APP_INPUTS"]
+api_key = app_inputs["api_key"]
+
 
 headers = {
   "hibp-api-key": api_key,
